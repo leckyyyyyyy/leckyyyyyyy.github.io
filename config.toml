@@ -1,0 +1,10 @@
+baseurl = "http://leckyyyyyyy.github.io/"
+languageCode = "ja"
+title = "leckyyyyyyy"
+contentdir = "content"
+layoutdir = "layouts"
+publishdir = "public"
+
+[params]
+  githubUrl = "https://github.com/leckyyyyyyy"
+  twitterUrl = "https://twitter.com/leckyyyyyyy"
