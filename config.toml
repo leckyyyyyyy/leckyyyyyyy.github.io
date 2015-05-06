@@ -1,6 +1,6 @@
 baseurl = "http://leckyyyyyyy.github.io/"
 languageCode = "ja"
-title = "leckyyyyyyy"
+title = "leckyyyyyyy.info"
 contentdir = "content"
 layoutdir = "layouts"
 publishdir = "public"
