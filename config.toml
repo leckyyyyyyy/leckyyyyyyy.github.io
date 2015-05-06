@@ -8,3 +8,4 @@ publishdir = "public"
 [params]
   githubUrl = "https://github.com/leckyyyyyyy"
   twitterUrl = "https://twitter.com/leckyyyyyyy"
+  GoogleAnalytics = "UA-62638779-1"
