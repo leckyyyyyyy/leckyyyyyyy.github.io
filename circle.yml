@@ -4,8 +4,8 @@ machine:
 dependencies:
   pre:
     - go get -v github.com/spf13/hugo
-    - git config --global user.name "CircleCI"
-    - git config --global user.email "circleci@example.com"
+    - git config --global user.name "leckyyyyyyy"
+    - git config --global user.email "leckyyyyyyy@users.noreply.github.com"
 
 deployment:
   gh-pages:
@@ -14,5 +14,5 @@ deployment:
       - git clone -b master git@github.com:leckyyyyyyy/leckyyyyyyy.github.io.git public
       - hugo
       - cd public && git add .
-      - cd public && git commit -m "publish `date '+%Y/%m/%d %H:%M:%S'`"
+      - cd public && git commit -m "[ci skip] publish `date '+%Y/%m/%d %H:%M:%S'`"
       - cd public && git push origin master
