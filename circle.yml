@@ -9,7 +9,7 @@ dependencies:
 
 deployment:
   gh-pages:
-    branch: content
+    branch: gh-pages-contents
     commands:
       - git clone -b master git@github.com:leckyyyyyyy/leckyyyyyyy.github.io.git public
       - hugo
