@@ -1,0 +1,12 @@
+.title a {
+  color: #222;
+  text-decoration: none;
+}
+
+.entry-title a {
+  text-decoration: none;
+}
+
+.footer {
+  padding: 20px 0;
+}

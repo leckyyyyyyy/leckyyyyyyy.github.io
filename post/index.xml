@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on leckyyyyyyy.info</title>
+    <link>http://leckyyyyyyy.github.io/post/</link>
+    <description>Recent content in Posts on leckyyyyyyy.info</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 10 May 2015 23:12:33 +0900</lastBuildDate>
+    <atom:link href="http://leckyyyyyyy.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Apache ログでのURLフラグメント(#)の扱い</title>
+      <link>http://leckyyyyyyy.github.io/post/2015/apache-log-fragment/</link>
+      <pubDate>Sun, 10 May 2015 23:12:33 +0900</pubDate>
+      
+      <guid>http://leckyyyyyyy.github.io/post/2015/apache-log-fragment/</guid>
+      <description>&lt;p&gt;URLフラグメント(#)以降の文字列はログには出力されない。&lt;br /&gt;
+URLフラグメント以降の文字列も意味のあるログ情報として扱いたい場合は&lt;br /&gt;
+自前でログ管理を作成するかなど対策が必要になる。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
