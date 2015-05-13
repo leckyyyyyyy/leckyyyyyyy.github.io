@@ -7,6 +7,10 @@ dependencies:
     - git config --global user.name "leckyyyyyyy"
     - git config --global user.email "leckyyyyyyy@users.noreply.github.com"
 
+test:
+  override:
+    - echo "There is no test. It will passed!!"
+
 deployment:
   gh-pages:
     branch: gh-pages-contents
