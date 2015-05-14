@@ -3,9 +3,9 @@ machine:
 
 dependencies:
   pre:
-    - wget https://github.com/spf13/hugo/releases/download/v0.13/hugo_0.13_linux_amd64.tar.gz
-    - tar xfvz ~/hugo_0.13_linux_amd64.tar.gz
-    - mv ~/hugo_0.13_linux_amd64/hugo_0.13_linux_amd64 ~/.go_workspace/bin/hugo
+    - wget -O ./hugo_0.13_linux_amd64.tar.gz https://github.com/spf13/hugo/releases/download/v0.13/hugo_0.13_linux_amd64.tar.gz
+    - tar xfvz ./hugo_0.13_linux_amd64.tar.gz
+    - mv ./hugo_0.13_linux_amd64/hugo_0.13_linux_amd64 ~/.go_workspace/bin/hugo
     - git config --global user.name "leckyyyyyyy"
     - git config --global user.email "leckyyyyyyy@users.noreply.github.com"
 
