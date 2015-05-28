@@ -6,8 +6,30 @@
     <description>Recent content on leckyyyyyyy.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 10 May 2015 23:12:33 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2015 00:34:08 +0900</lastBuildDate>
     <atom:link href="http://leckyyyyyyy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>yum でインストール済みのパッケージを確認する</title>
+      <link>http://leckyyyyyyy.github.io/post/2015/confirm-installed-package-yum/</link>
+      <pubDate>Thu, 28 May 2015 00:34:08 +0900</pubDate>
+      
+      <guid>http://leckyyyyyyy.github.io/post/2015/confirm-installed-package-yum/</guid>
+      <description>&lt;p&gt;&lt;code&gt;yum list installed&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;検索文字列を指定することで条件に一致するパッケージを表示する&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# パッケージ名の先頭が java と一致するもの(前方一致)
+yum list installed &amp;quot;java*&amp;quot;
+
+# パッケージ名の末尾が java と一致するもの(後方一致)
+yum list installed &amp;quot;*java&amp;quot;
+
+# パッケージ名に java が含まれるもの(部分一致)
+yum list installed &amp;quot;*java*&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Apache ログでのURLフラグメント(#)の扱い</title>
