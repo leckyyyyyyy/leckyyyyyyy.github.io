@@ -5,5 +5,8 @@ title = "Android Product Flavor で利用できない名前"
 
 +++
 
-Product Flavor の名前に debug は利用できない。  
+Product Flavor の名前に BuildType で定義している名前は利用できない。  
 `ProductFlavor names cannot collide with BuildType names` のエラーが出る。
+
+`release` はデフォルトで定義されているので気付いたけど、  
+`debug` を定義してみると同じエラーが出たので、予約されているようです。
