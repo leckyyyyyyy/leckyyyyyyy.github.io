@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/css/custom.css">
 <link rel="stylesheet" href="/font-awesome/css/font-awesome.css">
 <link rel="alternate" href="/index.xml" type="application/rss+xml" title="leckyyyyyyy.info">
-<title>leckyyyyyyy.info</title>
+<title>CheckStyle-IDEA 4.15.0 は JDK8 が必要みたい - leckyyyyyyy.info</title>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -27,29 +27,19 @@
 <h3 class="title"><a href="/">leckyyyyyyy.info</a></h3>
 
 
-    <div>
-    
-        <div>
-          <h3 class="entry-title"><a href="/post/2015/checkstyle-idea-4.15.0-jdk8/">CheckStyle-IDEA 4.15.0 は JDK8 が必要みたい</a></h3>
-          <p>2015-06-02</p>
-        </div>
-    
-        <div>
-          <h3 class="entry-title"><a href="/post/2015/android-product-flavor-unavailable-name/">Android Product Flavor で利用できない名前</a></h3>
-          <p>2015-05-30</p>
-        </div>
-    
-        <div>
-          <h3 class="entry-title"><a href="/post/2015/confirm-installed-package-yum/">yum でインストール済みのパッケージを確認する</a></h3>
-          <p>2015-05-28</p>
-        </div>
-    
-        <div>
-          <h3 class="entry-title"><a href="/post/2015/apache-log-fragment/">Apache ログでのURLフラグメント(#)の扱い</a></h3>
-          <p>2015-05-10</p>
-        </div>
-    
-    </div>
+<div class="container">
+  <h5>CheckStyle-IDEA 4.15.0 は JDK8 が必要みたい</h5>
+  <p>2015-06-02</p>
+  <p>CheckStyle-IDEA のアップデート通知があったのでプラグインのアップデートを行うと<br />
+<code>Unsupported major.minor version 52.0</code> のエラーが表示されました。</p>
+
+<p>GitHub で公開されているので <a href="https://github.com/jshiell/checkstyle-idea/blob/4.15.0/README.md#i-see-a-cannot-load-project-error-stating-unsupported-majorminor-version-520">README</a> を確認するとエラーメッセージの対応方法が載っていました。<br />
+どうやらバージョンアップの影響で JDK8 にアップデートする必要があるとのことです。</p>
+
+<p>このままでは IDE の起動が失敗するので、JDK8 にアップデートするか、<br />
+プラグインの一覧から <code>CheckStyle-IDEA</code> を選択してプラグインの実行を無効にする必要があります。</p>
+
+</div>
 
   <hr>
   <div class="footer">

@@ -6,8 +6,25 @@
     <description>Recent content on leckyyyyyyy.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 30 May 2015 16:19:48 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jun 2015 22:49:58 +0900</lastBuildDate>
     <atom:link href="http://leckyyyyyyy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CheckStyle-IDEA 4.15.0 は JDK8 が必要みたい</title>
+      <link>http://leckyyyyyyy.github.io/post/2015/checkstyle-idea-4.15.0-jdk8/</link>
+      <pubDate>Tue, 02 Jun 2015 22:49:58 +0900</pubDate>
+      
+      <guid>http://leckyyyyyyy.github.io/post/2015/checkstyle-idea-4.15.0-jdk8/</guid>
+      <description>&lt;p&gt;CheckStyle-IDEA のアップデート通知があったのでプラグインのアップデートを行うと&lt;br /&gt;
+&lt;code&gt;Unsupported major.minor version 52.0&lt;/code&gt; のエラーが表示されました。&lt;/p&gt;
+
+&lt;p&gt;GitHub で公開されているので &lt;a href=&#34;https://github.com/jshiell/checkstyle-idea/blob/4.15.0/README.md#i-see-a-cannot-load-project-error-stating-unsupported-majorminor-version-520&#34;&gt;README&lt;/a&gt; を確認するとエラーメッセージの対応方法が載っていました。&lt;br /&gt;
+どうやらバージョンアップの影響で JDK8 にアップデートする必要があるとのことです。&lt;/p&gt;
+
+&lt;p&gt;このままでは IDE の起動が失敗するので、JDK8 にアップデートするか、&lt;br /&gt;
+プラグインの一覧から &lt;code&gt;CheckStyle-IDEA&lt;/code&gt; を選択してプラグインの実行を無効にする必要があります。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Android Product Flavor で利用できない名前</title>
