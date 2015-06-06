@@ -6,8 +6,40 @@
     <description>Recent content on leckyyyyyyy.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 02 Jun 2015 22:49:58 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jun 2015 00:53:59 +0900</lastBuildDate>
     <atom:link href="http://leckyyyyyyy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>GitHub のコンテンツをリンクで読み込めるようにする</title>
+      <link>http://leckyyyyyyy.github.io/post/2015/read-github-contents/</link>
+      <pubDate>Sun, 07 Jun 2015 00:53:59 +0900</pubDate>
+      
+      <guid>http://leckyyyyyyy.github.io/post/2015/read-github-contents/</guid>
+      <description>&lt;p&gt;GitHub で公開されている JavaScript ライブラリや CSSファイルを利用したいとき&lt;br /&gt;
+zip ダウンロードして必要なファイルを抜き出す。GitHub で Raw モードで開いて保存。&lt;br /&gt;
+ということをしておりましたが、これだとファイルを手元に置いておく必要があるので&lt;br /&gt;
+試用するときにファイルとして置くのは避けたいなと感じていました。&lt;/p&gt;
+
+&lt;p&gt;GitHub で Raw モードで開いたときの URL を読み込み先のリンクに利用できるカナと&lt;br /&gt;
+思ったのですが、Content-Type が &lt;code&gt;text/plain&lt;/code&gt; で返ってくるのでブラウザに解釈して&lt;br /&gt;
+もらうには都合が悪いです。&lt;/p&gt;
+
+&lt;p&gt;その辺りも含めてお助けしてくれるサービス &lt;a href=&#34;https://rawgit.com/&#34;&gt;RawGit&lt;/a&gt; を知りました。&lt;/p&gt;
+
+&lt;p&gt;使い方は&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;読み込むファイルを Raw モードで開き、URL をコピー&lt;/li&gt;
+&lt;li&gt;コピーした URL を &lt;a href=&#34;https://rawgit.com/&#34;&gt;RawGit&lt;/a&gt; の &lt;code&gt;Paste a GitHub file or gist URL here.&lt;/code&gt; に貼り付け&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Use this URL for dev/testing&lt;/strong&gt; のテキストボックスに URL が現れるのでコピー&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;コピーした URL を読み込み先の URL として設定するだけ。&lt;/p&gt;
+
+&lt;p&gt;開発やテストなど小さな規模での利用用途なら良さそうです。&lt;br /&gt;
+&lt;a href=&#34;https://rawgit.com/faq&#34;&gt;FAQ&lt;/a&gt; に用途に関することも載っていました。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>CheckStyle-IDEA 4.15.0 は JDK8 が必要みたい</title>
