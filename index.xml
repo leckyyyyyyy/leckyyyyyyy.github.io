@@ -6,8 +6,100 @@
     <description>Recent content on leckyyyyyyy.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 07 Jun 2015 00:53:59 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2015 01:46:12 +0900</lastBuildDate>
     <atom:link href="http://leckyyyyyyy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Markdown でダイアグラム、フローチャートを作成できる JavaScriptライブラリ mermaid を使ってみた</title>
+      <link>http://leckyyyyyyy.github.io/post/2015/chart-library-mermaid/</link>
+      <pubDate>Tue, 09 Jun 2015 01:46:12 +0900</pubDate>
+      
+      <guid>http://leckyyyyyyy.github.io/post/2015/chart-library-mermaid/</guid>
+      <description>
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://rawgit.com/knsv/mermaid/0.4.0/dist/mermaid.full.min.js&#34;&gt;&lt;/script&gt;
+&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; href=&#34;https://rawgit.com/knsv/mermaid/gh-pages/css/mermaid.css&#34;&gt;
+&lt;script type=&#34;text/javascript&#34;&gt;
+mermaid.ganttConfig = {
+  numberSectionStyles: 2
+}
+&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/uzuki_aoba/items/a01f8b0b52ced69c8092&#34;&gt;mermaid.jsが素晴らしいけどなかなか使ってる人見かけないので実例晒す&lt;/a&gt; を見て&lt;br /&gt;
+JavaScriptライブラリをインポートして早速チャートを mermaid で作成したときの内容です。&lt;/p&gt;
+
+&lt;h4 id=&#34;チャートを書く前に:939c930df2c84c1f866f3ac37bf04b68&#34;&gt;チャートを書く前に&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;https://rawgit.com/knsv/mermaid/0.4.0/dist/mermaid.full.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; href=&amp;quot;https://rawgit.com/knsv/mermaid/gh-pages/css/mermaid.css&amp;quot;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+mermaid.ganttConfig = {
+  numberSectionStyles: 2
+}
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;を追加&lt;/p&gt;
+
+&lt;h4 id=&#34;チャートを書く:939c930df2c84c1f866f3ac37bf04b68&#34;&gt;チャートを書く&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;mermaid&amp;quot;&amp;gt;
+// ここにチャートの定義を書くことで、この部分にチャートが描画されます。
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;チャートのデモ:939c930df2c84c1f866f3ac37bf04b68&#34;&gt;チャートのデモ&lt;/h4&gt;
+
+&lt;p&gt;フローチャート&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;mermaid&amp;quot;&amp;gt;
+graph LR
+  画面1 --&amp;gt; 画面2
+  画面2 --&amp;gt; 画面3
+  画面1 --&amp;gt; 画面4
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&#34;mermaid&#34;&gt;
+graph LR
+  画面1 --&gt; 画面2
+  画面2 --&gt; 画面3
+  画面1 --&gt; 画面4
+&lt;/div&gt;
+
+&lt;p&gt;ガントチャート&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;mermaid&amp;quot;&amp;gt;
+gantt
+  title Webサイト作業スケジュール
+  
+  section 画面1
+  デザイン       :a1, 2015-06-09, 10d
+  プログラム開発 :a2, after a1, 10d
+  テスト         :a3, after a2, 5d
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&#34;mermaid&#34;&gt;
+gantt
+  title Webサイト作業スケジュール
+  
+  section 画面1
+  デザイン       :a1, 2015-06-09, 10d
+  プログラム開発 :a2, after a1, 10d
+  テスト         :a3, after a2, 5d
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/knsv/mermaid&#34;&gt;mermaid&lt;/a&gt; の &lt;a href=&#34;http://knsv.github.io/mermaid/usage.html&#34;&gt;セットアップ方法&lt;/a&gt; やチャート作成に必要な定義、&lt;a href=&#34;http://knsv.github.io/mermaid/demos.html&#34;&gt;デモ&lt;/a&gt; も見ながら書いてみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;チャートの定義が間違っていると描画する部分には何も表示されません&lt;/strong&gt; 表示されないときはブラウザのコンソールにエラーが表示されるので手助けになるかもしれないです。&lt;/p&gt;
+
+&lt;p&gt;日本語を含めても表示されていました。&lt;br /&gt;
+チャートのスタイルは CSS で変更できるので、必要に応じて変更できますね。&lt;br /&gt;
+(今回、読み込んでいるのは mermaid のドキュメントを利用しています。デフォルトのスタイルが見つけられなかった。)&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>GitHub のコンテンツをリンクで読み込めるようにする</title>

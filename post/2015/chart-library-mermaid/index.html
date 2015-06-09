@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<base href="http://leckyyyyyyy.github.io/">
+<meta charset="utf-8">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/font-awesome/css/font-awesome.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="leckyyyyyyy.info">
+<title>Markdown でダイアグラム、フローチャートを作成できる JavaScriptライブラリ mermaid を使ってみた - leckyyyyyyy.info</title>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-62638779-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+<body>
+<div class="container">
+<h3 class="title"><a href="/">leckyyyyyyy.info</a></h3>
+
+
+<div class="container">
+  <h5>Markdown でダイアグラム、フローチャートを作成できる JavaScriptライブラリ mermaid を使ってみた</h5>
+  <p>2015-06-09</p>
+  <div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="leckyyyyyyy" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
+
+  
+
+<script type="text/javascript" src="https://rawgit.com/knsv/mermaid/0.4.0/dist/mermaid.full.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://rawgit.com/knsv/mermaid/gh-pages/css/mermaid.css">
+<script type="text/javascript">
+mermaid.ganttConfig = {
+  numberSectionStyles: 2
+}
+</script>
+
+<p><a href="http://qiita.com/uzuki_aoba/items/a01f8b0b52ced69c8092">mermaid.jsが素晴らしいけどなかなか使ってる人見かけないので実例晒す</a> を見て<br />
+JavaScriptライブラリをインポートして早速チャートを mermaid で作成したときの内容です。</p>
+
+<h4 id="チャートを書く前に:939c930df2c84c1f866f3ac37bf04b68">チャートを書く前に</h4>
+
+<p><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://rawgit.com/knsv/mermaid/0.4.0/dist/mermaid.full.min.js&quot;&gt;&lt;/script&gt;</code><br />
+<code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://rawgit.com/knsv/mermaid/gh-pages/css/mermaid.css&quot;&gt;</code></p>
+
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+mermaid.ganttConfig = {
+  numberSectionStyles: 2
+}
+&lt;/script&gt;
+</code></pre>
+
+<p>を追加</p>
+
+<h4 id="チャートを書く:939c930df2c84c1f866f3ac37bf04b68">チャートを書く</h4>
+
+<pre><code>&lt;div class=&quot;mermaid&quot;&gt;
+// ここにチャートの定義を書くことで、この部分にチャートが描画されます。
+&lt;/div&gt;
+</code></pre>
+
+<h4 id="チャートのデモ:939c930df2c84c1f866f3ac37bf04b68">チャートのデモ</h4>
+
+<p>フローチャート</p>
+
+<pre><code>&lt;div class=&quot;mermaid&quot;&gt;
+graph LR
+  画面1 --&gt; 画面2
+  画面2 --&gt; 画面3
+  画面1 --&gt; 画面4
+&lt;/div&gt;
+</code></pre>
+
+<div class="mermaid">
+graph LR
+  画面1 --> 画面2
+  画面2 --> 画面3
+  画面1 --> 画面4
+</div>
+
+<p>ガントチャート</p>
+
+<pre><code>&lt;div class=&quot;mermaid&quot;&gt;
+gantt
+  title Webサイト作業スケジュール
+  
+  section 画面1
+  デザイン       :a1, 2015-06-09, 10d
+  プログラム開発 :a2, after a1, 10d
+  テスト         :a3, after a2, 5d
+&lt;/div&gt;
+</code></pre>
+
+<div class="mermaid">
+gantt
+  title Webサイト作業スケジュール
+  
+  section 画面1
+  デザイン       :a1, 2015-06-09, 10d
+  プログラム開発 :a2, after a1, 10d
+  テスト         :a3, after a2, 5d
+</div>
+
+<p><a href="https://github.com/knsv/mermaid">mermaid</a> の <a href="http://knsv.github.io/mermaid/usage.html">セットアップ方法</a> やチャート作成に必要な定義、<a href="http://knsv.github.io/mermaid/demos.html">デモ</a> も見ながら書いてみました。</p>
+
+<p><strong>チャートの定義が間違っていると描画する部分には何も表示されません</strong> 表示されないときはブラウザのコンソールにエラーが表示されるので手助けになるかもしれないです。</p>
+
+<p>日本語を含めても表示されていました。<br />
+チャートのスタイルは CSS で変更できるので、必要に応じて変更できますね。<br />
+(今回、読み込んでいるのは mermaid のドキュメントを利用しています。デフォルトのスタイルが見つけられなかった。)</p>
+
+</div>
+
+  <hr>
+  <div class="footer">
+    <div class="row">
+      <div class="one columns">
+        <a href="https://github.com/leckyyyyyyy" target="_blank" title="GitHub"><i class="fa fa-github fa-3x"></i></a></span>
+      </div>
+      <div class="one columns">
+        <a href="https://twitter.com/leckyyyyyyy" target="_blank" title="Twitter"><i class="fa fa-twitter fa-3x"></i></a></span>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+
