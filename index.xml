@@ -31,10 +31,12 @@ JavaScriptライブラリをインポートして早速チャートを mermaid �
 &lt;h4 id=&#34;チャートを書く前に:939c930df2c84c1f866f3ac37bf04b68&#34;&gt;チャートを書く前に&lt;/h4&gt;
 
 &lt;p&gt;&lt;code&gt;&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;https://rawgit.com/knsv/mermaid/0.4.0/dist/mermaid.full.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;br /&gt;
-&lt;code&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; href=&amp;quot;https://rawgit.com/knsv/mermaid/gh-pages/css/mermaid.css&amp;quot;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;code&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; href=&amp;quot;https://rawgit.com/knsv/mermaid/gh-pages/css/mermaid.css&amp;quot;&amp;gt;&lt;/code&gt;&lt;br /&gt;
+または上記2つのファイルをダウンロードしてリンク先に設定する。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
 mermaid.ganttConfig = {
+  // 1～ の場合はガントチャートで色分けされる。0 の場合はモノクロ。
   numberSectionStyles: 2
 }
 &amp;lt;/script&amp;gt;
@@ -98,6 +100,26 @@ gantt
 &lt;p&gt;日本語を含めても表示されていました。&lt;br /&gt;
 チャートのスタイルは CSS で変更できるので、必要に応じて変更できますね。&lt;br /&gt;
 (今回、読み込んでいるのは mermaid のドキュメントを利用しています。デフォルトのスタイルが見つけられなかった。)&lt;/p&gt;
+
+&lt;p&gt;Chrome ではフローチャート、ガントチャートどちらも表示されていますが、他のブラウザでは日本語が表示されなかったり、チャート自体が表示されないようです。&lt;br /&gt;
+パスの矢印が Chrome, Firefox で表示されていないのですが、他のページで試したところ表示はされていたので、スタイルが要因かもしれません。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;フローチャート
+
+&lt;ul&gt;
+&lt;li&gt;IE11&lt;br /&gt;
+日本語が表示されない&lt;/li&gt;
+&lt;li&gt;Chrome, Firefox&lt;br /&gt;
+パスの矢印が表示されない?&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ガントチャート
+
+&lt;ul&gt;
+&lt;li&gt;Firefox&lt;br /&gt;
+チャートが表示されず、定義した内容が表示される&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
