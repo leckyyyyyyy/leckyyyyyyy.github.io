@@ -20,9 +20,12 @@ JavaScriptライブラリをインポートして早速チャートを mermaid �
 
 `<script type="text/javascript" src="https://rawgit.com/knsv/mermaid/0.4.0/dist/mermaid.full.min.js"></script>`  
 `<link rel="stylesheet" type="text/css" href="https://rawgit.com/knsv/mermaid/gh-pages/css/mermaid.css">`  
+または上記2つのファイルをダウンロードしてリンク先に設定する。
+
 ```
 <script type="text/javascript">
 mermaid.ganttConfig = {
+  // 1～ の場合はガントチャートで色分けされる。0 の場合はモノクロ。
   numberSectionStyles: 2
 }
 </script>
