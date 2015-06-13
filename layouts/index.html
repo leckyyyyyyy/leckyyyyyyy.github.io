@@ -3,7 +3,7 @@
     <div>
     {{ range .Data.Pages }}
         <div>
-          <h3 class="entry-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <h5 class="entry-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
           <p>{{ .Date.Format "2006-01-02" }}</p>
         </div>
     {{ end }}
