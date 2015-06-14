@@ -4,7 +4,13 @@
     {{ range .Data.Pages }}
         <div>
           <h5 class="entry-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
-          <p>{{ .Date.Format "2006-01-02" }}</p>
+          <p>{{ .Date.Format "2006-01-02" }}
+          {{ range .Params.tags }}
+          <i class="fa fa-tag">
+            <a href="/tags/{{ . | urlize }}">{{ . }}</a>
+          </i>
+          {{ end }}
+          </p>
         </div>
     {{ end }}
     </div>
