@@ -1,0 +1,13 @@
+{{ partial "header.html" . }}
+
+    <div>
+    <strong>タグ <code>{{ .Title }}</code> の投稿を表示しています。</strong>
+    {{ range .Data.Pages }}
+        <div>
+          <h5 class="entry-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
+          <p>{{ .Date.Format "2006-01-02" }}</p>
+        </div>
+    {{ end }}
+    </div>
+
+{{ partial "footer.html" . }}
