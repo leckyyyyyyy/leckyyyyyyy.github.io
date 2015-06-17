@@ -6,8 +6,37 @@
     <description>Recent content on leckyyyyyyy.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 09 Jun 2015 01:46:12 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2015 00:22:11 +0900</lastBuildDate>
     <atom:link href="http://leckyyyyyyy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Google でのテストに関する実行時間とテストの内容について</title>
+      <link>http://leckyyyyyyy.github.io/post/2015/google-test-size/</link>
+      <pubDate>Thu, 18 Jun 2015 00:22:11 +0900</pubDate>
+      
+      <guid>http://leckyyyyyyy.github.io/post/2015/google-test-size/</guid>
+      <description>&lt;p&gt;約5年前に投稿された内容ですが、テストの内容と実行時間からテストサイズの目安を一覧にしたページを見つけました。&lt;br /&gt;
+&lt;a href=&#34;http://googletesting.blogspot.jp/2010/12/test-sizes.html&#34;&gt;http://googletesting.blogspot.jp/2010/12/test-sizes.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Android に @SmallTest, @MediumTest, @LargeTest のアノテーションがあるのですが、&lt;br /&gt;
+今までピンと来ずテストサイズの目安も何か参考になるのも見つけられなかったので、&lt;br /&gt;
+利用していませんでした。&lt;br /&gt;
+でも、この一覧があれば今後はこのアノテーションを有効活用できそうな気がします。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Android のアノテーションを利用するときの基準&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;@SmallTest&lt;br /&gt;
+ファイルやデータベースにアクセスしないテスト&lt;/li&gt;
+&lt;li&gt;@MediumTest&lt;br /&gt;
+ファイルやデータベースにアクセスするテスト&lt;/li&gt;
+&lt;li&gt;@LargeTest&lt;br /&gt;
+UI テスト&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今後、利用するときがあったらこんな感じで使ってみたいと思います。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Markdown でダイアグラム、フローチャートを作成できる JavaScriptライブラリ mermaid を使ってみた</title>
