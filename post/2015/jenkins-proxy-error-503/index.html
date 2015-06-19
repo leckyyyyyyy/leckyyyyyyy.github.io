@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<base href="http://leckyyyyyyy.github.io/">
+<meta charset="utf-8">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/font-awesome/css/font-awesome.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="leckyyyyyyy.info">
+<title>Jenkins で HTTP 503 が表示されたときの解決方法 - leckyyyyyyy.info</title>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-62638779-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+<body>
+<div class="container">
+<h3 class="title"><a href="/">leckyyyyyyy.info</a></h3>
+
+
+<div class="container">
+  <h5>Jenkins で HTTP 503 が表示されたときの解決方法</h5>
+  <p>2015-06-19</p>
+  <div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="leckyyyyyyy" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
+
+  <p>Jenkins にアクセスしたときに HTTP ステータスコード 503 が表示されたときに<br />
+行った解決方法です。<br />
+Jenkins は Apache のリバースプロキシーで運用しています。</p>
+
+<pre><code class="language-sh"># Jenkins のステータスを確認
+sudo /sbin/service jenkins status
+# Jenkins 再起動
+sudo /sbin/service jenkins restart
+# リバースプロキシで運用しているので、Apache 再起動
+sudo /sbin/service httpd graceful
+</code></pre>
+
+</div>
+
+  <hr>
+  <div class="footer">
+    <div class="row">
+      <div class="one columns">
+        <a href="https://github.com/leckyyyyyyy" target="_blank" title="GitHub"><i class="fa fa-github fa-3x"></i></a></span>
+      </div>
+      <div class="one columns">
+        <a href="https://twitter.com/leckyyyyyyy" target="_blank" title="Twitter"><i class="fa fa-twitter fa-3x"></i></a></span>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+

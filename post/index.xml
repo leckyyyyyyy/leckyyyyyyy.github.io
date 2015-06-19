@@ -6,8 +6,28 @@
     <description>Recent content in Posts on leckyyyyyyy.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 18 Jun 2015 00:22:11 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2015 22:09:10 +0900</lastBuildDate>
     <atom:link href="http://leckyyyyyyy.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Jenkins で HTTP 503 が表示されたときの解決方法</title>
+      <link>http://leckyyyyyyy.github.io/post/2015/jenkins-proxy-error-503/</link>
+      <pubDate>Fri, 19 Jun 2015 22:09:10 +0900</pubDate>
+      
+      <guid>http://leckyyyyyyy.github.io/post/2015/jenkins-proxy-error-503/</guid>
+      <description>&lt;p&gt;Jenkins にアクセスしたときに HTTP ステータスコード 503 が表示されたときに&lt;br /&gt;
+行った解決方法です。&lt;br /&gt;
+Jenkins は Apache のリバースプロキシーで運用しています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;# Jenkins のステータスを確認
+sudo /sbin/service jenkins status
+# Jenkins 再起動
+sudo /sbin/service jenkins restart
+# リバースプロキシで運用しているので、Apache 再起動
+sudo /sbin/service httpd graceful
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Google でのテストに関する実行時間とテストの内容について</title>
