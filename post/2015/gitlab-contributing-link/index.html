@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<base href="http://leckyyyyyyy.github.io/">
+<meta charset="utf-8">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/font-awesome/css/font-awesome.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="leckyyyyyyy.info">
+<title>GitLab で issue や MargeRequest の新規作成時にガイドラインを表示するには - leckyyyyyyy.info</title>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-62638779-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+<body>
+<div class="container">
+<h3 class="title"><a href="/">leckyyyyyyy.info</a></h3>
+
+
+<div class="container">
+  <h5>GitLab で issue や MargeRequest の新規作成時にガイドラインを表示するには</h5>
+  <p>2015-06-20</p>
+  <div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="leckyyyyyyy" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
+
+  <p>issue や MargeRequest を作成するとき、ルールやフォーマットなどガイドラインがあるプロジェクトではメンバーとして参加するとき説明をうけたり、別途ドキュメントとかをもらったりするかもしれませんが、作成するときには、そのガイドラインに沿っていなかったり忘れたりするときもあると思います。</p>
+
+<p>そのようなことを防ぐため？に GitHub や GitLab にはガイドライン用のファイルを指定のファイル名で作成することで、issue や MargeRequest を新規作成するときにリンクとして表示してくれます。</p>
+
+<p>GitHub でのガイドラインのリンクを表示する方法は <a href="https://github.com/blog/1184-contributing-guidelines">ヘルプページ</a> にあります。<br />
+GitLab では <a href="https://about.gitlab.com/2014/03/21/gitlab-6-dot-7-released/">リリースノート</a> に機能の説明は載っていたのですが、手順については今回調べることになったのでまとめました。</p>
+
+<p>リポジトリのルートディレクトリ直下にファイル名 <strong>CONTRIBUTING.md</strong> または <strong>CONTRIBUTING</strong> で作成。<br />
+<small>CONTRIBUTING.md と CONTRIBUTING の両方が存在したときは CONTRIBUTING が優先されるようです。</small></p>
+
+<p>Markdown 形式のほうがファイル単体で表示するときにも見やすいので、作成するときには CONTRIBUTING.md が良さそうです。</p>
+
+</div>
+
+  <hr>
+  <div class="footer">
+    <div class="row">
+      <div class="one columns">
+        <a href="https://github.com/leckyyyyyyy" target="_blank" title="GitHub"><i class="fa fa-github fa-3x"></i></a></span>
+      </div>
+      <div class="one columns">
+        <a href="https://twitter.com/leckyyyyyyy" target="_blank" title="Twitter"><i class="fa fa-twitter fa-3x"></i></a></span>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+

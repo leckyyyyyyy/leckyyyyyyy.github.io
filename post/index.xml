@@ -6,8 +6,28 @@
     <description>Recent content in Posts on leckyyyyyyy.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 19 Jun 2015 22:09:10 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jun 2015 20:14:59 +0900</lastBuildDate>
     <atom:link href="http://leckyyyyyyy.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>GitLab で issue や MargeRequest の新規作成時にガイドラインを表示するには</title>
+      <link>http://leckyyyyyyy.github.io/post/2015/gitlab-contributing-link/</link>
+      <pubDate>Sat, 20 Jun 2015 20:14:59 +0900</pubDate>
+      
+      <guid>http://leckyyyyyyy.github.io/post/2015/gitlab-contributing-link/</guid>
+      <description>&lt;p&gt;issue や MargeRequest を作成するとき、ルールやフォーマットなどガイドラインがあるプロジェクトではメンバーとして参加するとき説明をうけたり、別途ドキュメントとかをもらったりするかもしれませんが、作成するときには、そのガイドラインに沿っていなかったり忘れたりするときもあると思います。&lt;/p&gt;
+
+&lt;p&gt;そのようなことを防ぐため？に GitHub や GitLab にはガイドライン用のファイルを指定のファイル名で作成することで、issue や MargeRequest を新規作成するときにリンクとして表示してくれます。&lt;/p&gt;
+
+&lt;p&gt;GitHub でのガイドラインのリンクを表示する方法は &lt;a href=&#34;https://github.com/blog/1184-contributing-guidelines&#34;&gt;ヘルプページ&lt;/a&gt; にあります。&lt;br /&gt;
+GitLab では &lt;a href=&#34;https://about.gitlab.com/2014/03/21/gitlab-6-dot-7-released/&#34;&gt;リリースノート&lt;/a&gt; に機能の説明は載っていたのですが、手順については今回調べることになったのでまとめました。&lt;/p&gt;
+
+&lt;p&gt;リポジトリのルートディレクトリ直下にファイル名 &lt;strong&gt;CONTRIBUTING.md&lt;/strong&gt; または &lt;strong&gt;CONTRIBUTING&lt;/strong&gt; で作成。&lt;br /&gt;
+&lt;small&gt;CONTRIBUTING.md と CONTRIBUTING の両方が存在したときは CONTRIBUTING が優先されるようです。&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;Markdown 形式のほうがファイル単体で表示するときにも見やすいので、作成するときには CONTRIBUTING.md が良さそうです。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Jenkins で HTTP 503 が表示されたときの解決方法</title>
