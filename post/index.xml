@@ -6,8 +6,35 @@
     <description>Recent content in Posts on leckyyyyyyy.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 20 Jun 2015 20:14:59 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jun 2015 02:14:46 +0900</lastBuildDate>
     <atom:link href="http://leckyyyyyyy.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CentOS5 で JDK6 から JDK7 へのアップデート</title>
+      <link>http://leckyyyyyyy.github.io/post/2015/centos-jdk6-to-jdk7-update/</link>
+      <pubDate>Tue, 23 Jun 2015 02:14:46 +0900</pubDate>
+      
+      <guid>http://leckyyyyyyy.github.io/post/2015/centos-jdk6-to-jdk7-update/</guid>
+      <description>&lt;p&gt;CentOS5 環境の JDK6 を JDK7 にアップデートするときの手順です。&lt;/p&gt;
+
+&lt;p&gt;今回の JDK のアップデートでは一度パッケージをアンインストールしてから目的のパッケージをインストールするため、アンインストール時に &lt;strong&gt;依存しているパッケージもアンインストール&lt;/strong&gt; されます。&lt;br /&gt;
+依存しているパッケージはアンインストール時に &lt;strong&gt;Removing for dependencies&lt;/strong&gt; として表示されます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;# JDK6 をアンインストール
+sudo yum remove java
+
+# JDK7 をインストール
+sudo yum install java-1.7.0-openjdk
+
+# Java のバージョンを表示
+java -version
+
+# アンインストールしたパッケージが必要な場合は再インストール
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;/var/log/yum.log&lt;/code&gt; でパッケージの追加/削除/更新の確認ができるので、ログから依存していたパッケージを探せます。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>GitLab で issue や MargeRequest の新規作成時にガイドラインを表示するには</title>

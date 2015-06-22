@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<base href="http://leckyyyyyyy.github.io/">
+<meta charset="utf-8">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/font-awesome/css/font-awesome.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="leckyyyyyyy.info">
+<title>CentOS5 で JDK6 から JDK7 へのアップデート - leckyyyyyyy.info</title>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-62638779-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+<body>
+<div class="container">
+<h3 class="title"><a href="/">leckyyyyyyy.info</a></h3>
+
+
+<div class="container">
+  <h5>CentOS5 で JDK6 から JDK7 へのアップデート</h5>
+  <p>2015-06-23</p>
+  <div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="leckyyyyyyy" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
+
+  <p>CentOS5 環境の JDK6 を JDK7 にアップデートするときの手順です。</p>
+
+<p>今回の JDK のアップデートでは一度パッケージをアンインストールしてから目的のパッケージをインストールするため、アンインストール時に <strong>依存しているパッケージもアンインストール</strong> されます。<br />
+依存しているパッケージはアンインストール時に <strong>Removing for dependencies</strong> として表示されます。</p>
+
+<pre><code class="language-sh"># JDK6 をアンインストール
+sudo yum remove java
+
+# JDK7 をインストール
+sudo yum install java-1.7.0-openjdk
+
+# Java のバージョンを表示
+java -version
+
+# アンインストールしたパッケージが必要な場合は再インストール
+</code></pre>
+
+<p><code>/var/log/yum.log</code> でパッケージの追加/削除/更新の確認ができるので、ログから依存していたパッケージを探せます。</p>
+
+</div>
+
+  <hr>
+  <div class="footer">
+    <div class="row">
+      <div class="one columns">
+        <a href="https://github.com/leckyyyyyyy" target="_blank" title="GitHub"><i class="fa fa-github fa-3x"></i></a></span>
+      </div>
+      <div class="one columns">
+        <a href="https://twitter.com/leckyyyyyyy" target="_blank" title="Twitter"><i class="fa fa-twitter fa-3x"></i></a></span>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+
