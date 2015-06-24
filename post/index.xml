@@ -6,8 +6,24 @@
     <description>Recent content in Posts on leckyyyyyyy.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 23 Jun 2015 02:14:46 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2015 00:30:12 +0900</lastBuildDate>
     <atom:link href="http://leckyyyyyyy.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Android の Espresso.onData で java.lang.IndexOutOfBoundsException が発生したときは</title>
+      <link>http://leckyyyyyyy.github.io/post/2015/android-espresso-ondata-indexoutofboundsexception/</link>
+      <pubDate>Wed, 24 Jun 2015 00:30:12 +0900</pubDate>
+      
+      <guid>http://leckyyyyyyy.github.io/post/2015/android-espresso-ondata-indexoutofboundsexception/</guid>
+      <description>&lt;p&gt;Android の UI テストフレームワーク Espresso を利用しているときに Espresso.onData で &lt;code&gt;java.lang.IndexOutOfBoundsException&lt;/code&gt; が発生したときは参照している Adapter の &lt;code&gt;getCount&lt;/code&gt;、&lt;code&gt;getItem&lt;/code&gt; の実装を確認してみましょう。&lt;/p&gt;
+
+&lt;p&gt;Espresso.onData で参照する Adapter の &lt;a href=&#34;https://code.google.com/p/android-test-kit/source/browse/espresso/lib/src/main/java/com/google/android/apps/common/testing/ui/espresso/action/AdapterViewProtocols.java#49&#34;&gt;データを取得している箇所&lt;/a&gt; で &lt;code&gt;getCount&lt;/code&gt; を呼び出しているのですが、例外が発生したコードでは getCount の返す値がデータのリストの長さを返していませんでした。&lt;br /&gt;
+getItem はデータのリストを参照していたので、つじつまが合わず例外が発生していました。&lt;/p&gt;
+
+&lt;p&gt;getCount、getItem は Adapter が保持するデータのリストを参照するはずなのですが、今回は全く異なる処理が組み込まれていたのでハマりました。&lt;br /&gt;
+メソッドをオーバーライドするときは、メソッドの本来の役割を理解した上で実装しないと痛い目にあいますね。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>CentOS5 で JDK6 から JDK7 へのアップデート</title>
