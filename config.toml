@@ -5,6 +5,9 @@ contentdir = "content"
 layoutdir = "layouts"
 publishdir = "public"
 
+[permalinks]
+  post = "/post/:year/:slug/"
+
 [params]
   githubUrl = "https://github.com/leckyyyyyyy"
   twitterUrl = "https://twitter.com/leckyyyyyyy"
