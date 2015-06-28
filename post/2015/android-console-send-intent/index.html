@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<base href="http://leckyyyyyyy.github.io/">
+<meta charset="utf-8">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/font-awesome/css/font-awesome.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="leckyyyyyyy.info">
+<title>オリジナルの URL スキームを設定したアプリをコンソールから Intent を投げて起動する - leckyyyyyyy.info</title>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-62638779-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+<body>
+<div class="container">
+<h3 class="title"><a href="/">leckyyyyyyy.info</a></h3>
+
+
+<div class="container">
+  <h5>オリジナルの URL スキームを設定したアプリをコンソールから Intent を投げて起動する</h5>
+  <p>2015-06-28</p>
+  <div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="leckyyyyyyy" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
+
+  <p>オリジナルの URL スキームを設定したアプリを起動するとき、ブラウザのリンクを開く方法がありますが、その場合 HTML を用意してブラウザからアクセスする必要があります。<br />
+起動を確認するのが目的の場合、コンソールから Intent を送信することでアプリの起動を確認することができます。</p>
+
+<p><strong>コンソールから Intent を送信する手順</strong></p>
+
+<ol>
+<li>コンソールを起動</li>
+<li>コンソールで <code>adb shell</code> を実行して端末に接続</li>
+<li>コンソールで <code>am start -a android.intent.action.VIEW -d &quot;test://example.com&quot;</code> を実行</li>
+</ol>
+
+<p>URL スキームに対応するアプリが起動するようになります。<br />
+<code>-d</code> の後ろの文字列を <code>&quot;&quot;</code> で囲っているのは URL に &amp; が含まれている場合 &amp; 以降の文字列が認識されないため、渡せるように囲っています。</p>
+
+<p><strong>AndroidManifest.xml の設定例</strong></p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    package=&quot;package&quot; &gt;
+
+    &lt;application
+        android:allowBackup=&quot;true&quot;
+        android:icon=&quot;@mipmap/ic_launcher&quot;
+        android:label=&quot;@string/app_name&quot;
+        android:theme=&quot;@style/AppTheme&quot; &gt;
+        &lt;activity
+            android:name=&quot;.MainActivity&quot;
+            android:label=&quot;@string/app_name&quot; &gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+
+                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+            &lt;/intent-filter&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=&quot;android.intent.action.VIEW&quot; /&gt;
+
+                &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;
+                &lt;category android:name=&quot;android.intent.category.BROWSABLE&quot; /&gt;
+                &lt;data android:scheme=&quot;test&quot; /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+    &lt;/application&gt;
+
+&lt;/manifest&gt;
+</code></pre>
+
+</div>
+
+  <hr>
+  <div class="footer">
+    <div class="row">
+      <div class="one columns">
+        <a href="https://github.com/leckyyyyyyy" target="_blank" title="GitHub"><i class="fa fa-github fa-3x"></i></a></span>
+      </div>
+      <div class="one columns">
+        <a href="https://twitter.com/leckyyyyyyy" target="_blank" title="Twitter"><i class="fa fa-twitter fa-3x"></i></a></span>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+
