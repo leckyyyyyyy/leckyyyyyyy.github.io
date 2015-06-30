@@ -6,8 +6,26 @@
     <description>Recent content in Posts on leckyyyyyyy.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 28 Jun 2015 17:02:12 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2015 00:24:56 +0900</lastBuildDate>
     <atom:link href="http://leckyyyyyyy.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>yum でアップデートするときに指定のパッケージを除外する</title>
+      <link>http://leckyyyyyyy.github.io/post/2015/yum-package-exclude/</link>
+      <pubDate>Wed, 01 Jul 2015 00:24:56 +0900</pubDate>
+      
+      <guid>http://leckyyyyyyy.github.io/post/2015/yum-package-exclude/</guid>
+      <description>&lt;p&gt;yum でパッケージのアップデートをするときなどに指定のパッケージを除外したいことがありました。特定のバージョンを使い続ける事情があったので yum のオプションを探してみたところ &lt;code&gt;exclude&lt;/code&gt; でパッケージの除外を行えるようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;-x, --exclude=package
+Exclude a specific package by name or glob from updates on all repositories.  Configuration Option: exclude
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;コマンド例&lt;br /&gt;
+&lt;code&gt;yum update --exclude=[パッケージ名]&lt;/code&gt;&lt;br /&gt;
+[パッケージ名]に &lt;code&gt;*&lt;/code&gt; を含めることで前後/部分一致を行えるようです。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>オリジナルの URL スキームを設定したアプリをコンソールから Intent を投げて起動する</title>
