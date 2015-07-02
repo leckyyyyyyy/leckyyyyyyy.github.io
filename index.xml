@@ -6,8 +6,27 @@
     <description>Recent content on leckyyyyyyy.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 01 Jul 2015 00:24:56 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2015 00:31:09 +0900</lastBuildDate>
     <atom:link href="http://leckyyyyyyy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Adobe Reader で PDF を閲覧して閉じた後も AcroRd32.exe が PC のリソースを消費している</title>
+      <link>http://leckyyyyyyy.github.io/post/2015/adobe-reader-acrord32-resource-consumed/</link>
+      <pubDate>Thu, 02 Jul 2015 00:31:09 +0900</pubDate>
+      
+      <guid>http://leckyyyyyyy.github.io/post/2015/adobe-reader-acrord32-resource-consumed/</guid>
+      <description>&lt;p&gt;Adobe Reader で PDF を閲覧して閉じた後どうも CPU 使用率が下がらないので確認すると AcroRd32.exe が起動し続けていました。&lt;br /&gt;
+しかも複数の PDF を同時に閲覧すると、起動した分のプロセスがタスクマネージャーに残り続けていました。残るだけなら気にしないのですが、CPU 使用率が 数10% を消費し続けていたので無視できませんでした。&lt;br /&gt;
+タスクマネージャーに残り続ける理由はアップデートをチェックするためらしいです。&lt;/p&gt;
+
+&lt;p&gt;アップデートの確認を無効にすれば解決するとの報告があるみたいですが、アップデートのチェックを無効にすると、以降は手動でアップデートのチェックを行わなければならず忘れてしまう危険があるので、今回はタスクマネージャーからプロセスを直接終了するようにしました。&lt;/p&gt;
+
+&lt;p&gt;イメージ名 &lt;code&gt;AcroRd32.exe&lt;/code&gt;&lt;br /&gt;
+コマンドライン &lt;code&gt;--type=renderer&lt;/code&gt; のコマンドが含まれる&lt;/p&gt;
+
+&lt;p&gt;プロセスを終了することで CPU 使用率は下がったので良かったですが、PDF を利用することは多々あるので別のビューアを探すのも考えたほうが良いのかもしれません。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>yum でアップデートするときに指定のパッケージを除外する</title>

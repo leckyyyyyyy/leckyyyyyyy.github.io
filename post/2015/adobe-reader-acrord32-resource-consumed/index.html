@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<base href="http://leckyyyyyyy.github.io/">
+<meta charset="utf-8">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/font-awesome/css/font-awesome.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="leckyyyyyyy.info">
+<title>Adobe Reader で PDF を閲覧して閉じた後も AcroRd32.exe が PC のリソースを消費している - leckyyyyyyy.info</title>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-62638779-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+<body>
+<div class="container">
+<h3 class="title"><a href="/">leckyyyyyyy.info</a></h3>
+
+
+<div class="container">
+  <h5>Adobe Reader で PDF を閲覧して閉じた後も AcroRd32.exe が PC のリソースを消費している</h5>
+  <p>2015-07-02</p>
+  <div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="leckyyyyyyy" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
+
+  <p>Adobe Reader で PDF を閲覧して閉じた後どうも CPU 使用率が下がらないので確認すると AcroRd32.exe が起動し続けていました。<br />
+しかも複数の PDF を同時に閲覧すると、起動した分のプロセスがタスクマネージャーに残り続けていました。残るだけなら気にしないのですが、CPU 使用率が 数10% を消費し続けていたので無視できませんでした。<br />
+タスクマネージャーに残り続ける理由はアップデートをチェックするためらしいです。</p>
+
+<p>アップデートの確認を無効にすれば解決するとの報告があるみたいですが、アップデートのチェックを無効にすると、以降は手動でアップデートのチェックを行わなければならず忘れてしまう危険があるので、今回はタスクマネージャーからプロセスを直接終了するようにしました。</p>
+
+<p>イメージ名 <code>AcroRd32.exe</code><br />
+コマンドライン <code>--type=renderer</code> のコマンドが含まれる</p>
+
+<p>プロセスを終了することで CPU 使用率は下がったので良かったですが、PDF を利用することは多々あるので別のビューアを探すのも考えたほうが良いのかもしれません。</p>
+
+</div>
+
+  <hr>
+  <div class="footer">
+    <div class="row">
+      <div class="one columns">
+        <a href="https://github.com/leckyyyyyyy" target="_blank" title="GitHub"><i class="fa fa-github fa-3x"></i></a></span>
+      </div>
+      <div class="one columns">
+        <a href="https://twitter.com/leckyyyyyyy" target="_blank" title="Twitter"><i class="fa fa-twitter fa-3x"></i></a></span>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+
