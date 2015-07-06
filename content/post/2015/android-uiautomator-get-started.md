@@ -30,11 +30,6 @@ android {
   defaultConfig {
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
-
-  packagingOptions {
-    // 同じパスのファイルが複数のライブラリに存在するときビルドでエラーとなるため除外するパスを指定
-    exclude 'LICENSE.txt'
-  }
 }
 
 dependencies {
@@ -43,3 +38,107 @@ dependencies {
   androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
 }
 ```
+
+Android Studio から実行するときは __Edit Configurations...__ から __Android Tests__ を選択し __+__ を押して追加後「Name:」に任意の名前を入力「Module:」に app を選択して作成します。  
+メニューの __Select Run/Debug Configuration__ で作成した Android Tests を選択し「実行」します。
+
+コンソールから実行するときは `./gradlew connectedCheck` を実行します。  
+`[プロジェクト]/app/build/reports` 下にレポートも作成されます。  
+<small>gradlew で実行できるのは UI Automator バージョン 2 からです</small>
+
+### サンプルコード
+
+```java
+package com.example.android.testing;
+
+import android.content.Context;
+import android.content.Intent;
+import android.support.test.InstrumentationRegistry;
+import android.support.test.filters.SdkSuppress;
+import android.support.test.runner.AndroidJUnit4;
+import android.support.test.uiautomator.By;
+import android.support.test.uiautomator.UiDevice;
+import android.support.test.uiautomator.UiObject2;
+import android.support.test.uiautomator.Until;
+import android.support.v7.widget.LinearLayoutCompat;
+import android.test.suitebuilder.annotation.LargeTest;
+
+import org.hamcrest.CoreMatchers;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+@RunWith(AndroidJUnit4.class)
+@SdkSuppress(minSdkVersion = 18)
+@LargeTest
+public class UIAutomatorTest {
+
+    private static final String APP_PACKAGE = "com.example.android.testing";
+
+    private static final int LAUNCH_TIMEOUT = 5000;
+
+    private static final int UI_TIMEOUT = 5000;
+
+    private UiDevice device;
+
+    /**
+     * アプリケーション起動に必要なIntentを作成
+     *
+     * @param context     {@link InstrumentationRegistry#getContext()} テスト実行のアプリケーション
+     * @param packageName アプリケーションのパッケージ名
+     * @return アプリケーション起動用Intent
+     */
+    public static Intent createLaunchIntent(Context context, String packageName) {
+        final Intent intent = context.getPackageManager()
+                .getLaunchIntentForPackage(packageName);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        return intent;
+    }
+
+    @Before
+    public void setUp() {
+        device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
+
+        device.pressHome();
+
+        Context testContext = InstrumentationRegistry.getContext();
+        final Intent intent = createLaunchIntent(testContext, APP_PACKAGE);
+        testContext.startActivity(intent);
+
+        device.wait(Until.hasObject(By.pkg(APP_PACKAGE).depth(0)), LAUNCH_TIMEOUT);
+    }
+
+    @Test
+    public void 前提条件() {
+        Assert.assertThat(device, CoreMatchers.is(CoreMatchers.notNullValue()));
+    }
+
+    @Test
+    public void Hello_worldが表示されること() {
+        UiObject2 textView
+                = device.wait(Until.findObject(By.text("Hello world!")), UI_TIMEOUT);
+
+        Assert.assertThat(textView.getText(), CoreMatchers.is("Hello world!"));
+    }
+
+    @Test
+    public void Action_overflowを押してSettingsが表示されること() {
+        UiObject2 actionOverflow
+                = device.wait(Until.findObject(By.clazz(LinearLayoutCompat.class)), UI_TIMEOUT);
+
+        actionOverflow.click();
+        device.waitForIdle();
+
+        UiObject2 menu
+                = device.wait(Until.findObject(By.text("Settings")), UI_TIMEOUT);
+
+        Assert.assertThat(menu.getText(), CoreMatchers.is("Settings"));
+    }
+}
+```
+
+参考 URL  
+https://developer.android.com/intl/ja/tools/testing-support-library/index.html#UIAutomator  
+https://plus.google.com/+AndroidDevelopers/posts/WCWANrPkRxg
