@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<base href="http://leckyyyyyyy.github.io/">
+<meta charset="utf-8">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/font-awesome/css/font-awesome.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="leckyyyyyyy.info">
+<title>Android UI Automator の始め方 - leckyyyyyyy.info</title>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-62638779-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+<body>
+<div class="container">
+<h3 class="title"><a href="/">leckyyyyyyy.info</a></h3>
+
+
+<div class="container">
+  <h5>Android UI Automator の始め方</h5>
+  <p>2015-07-04</p>
+  <div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="leckyyyyyyy" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
+
+  
+
+<p>UI Automator は Android 標準の UI テストツールです。<br />
+UI テストは主にボタンをタップしたり、文字を入力するなどの操作をして特定のメッセージが表示される / 指定の画面が表示されるなど期待した結果になっているか確認することです。<br />
+ボタンをタップする、文字を入力するなどの操作部分をコードとして記述できるよう UI Automator がサポートしてくれます。</p>
+
+<p>テキストボックスに文字を入力してボタンを押すと次の画面を表示する、エラーメッセージを表示するなど決まった動作を確認 / テストする場合は導入しやすくコードとして記述しやすいです。<br />
+一度コードにしたものは「実行」するだけで同じ操作を繰り返し行ってくれるので、アプリケーションコードに変更を加えたタイミングで「実行」するなど定期的に行うことで何か間違いがあっても気付きやすくなると思います。<br />
+単調な操作を手動で複数回行うことはツライものがありますし、アプリケーションによっては操作するパターンが何十ともあると時間的にも精神的にもツラくなります。</p>
+
+<p>UI に関する操作でもスクロールが遅い / 速いやボタンをタップしたときのエフェクトなど直感的な内容に影響する部分はコードとして記述したり確認することは難しいため、手動で対応するしたほうが良い場合もあります。</p>
+
+<p>コードに置き換えが可能な部分は置き換えて、手動で行う必要がある部分に時間を割けるようにすることで、開発がより良くなると思います。</p>
+
+<h3 id="実行環境:4a5216fdfeb236857092d744b1841597">実行環境</h3>
+
+<p>UI Automator は 4.3 (API level 18) 以上のデバイスのみで利用できます。</p>
+
+<h3 id="導入方法:4a5216fdfeb236857092d744b1841597">導入方法</h3>
+
+<p>UI Automator を導入するには Gradle で定義します。</p>
+
+<pre><code class="language-gradle">android {
+  defaultConfig {
+    testInstrumentationRunner &quot;android.support.test.runner.AndroidJUnitRunner&quot;
+  }
+}
+
+dependencies {
+  androidTestCompile 'com.android.support.test:runner:0.3'
+  androidTestCompile 'com.android.support.test:rules:0.3'
+  androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
+}
+</code></pre>
+
+<p>Android Studio から実行するときは <strong>Edit Configurations&hellip;</strong> から <strong>Android Tests</strong> を選択し <strong>+</strong> を押して追加後「Name:」に任意の名前を入力「Module:」に app を選択して作成します。<br />
+メニューの <strong>Select Run/Debug Configuration</strong> で作成した Android Tests を選択し「実行」します。</p>
+
+<p>コンソールから実行するときは <code>./gradlew connectedCheck</code> を実行します。<br />
+<code>[プロジェクト]/app/build/reports</code> 下にレポートも作成されます。<br />
+<small>gradlew で実行できるのは UI Automator バージョン 2 からです</small></p>
+
+<h3 id="サンプルコード:4a5216fdfeb236857092d744b1841597">サンプルコード</h3>
+
+<pre><code class="language-java">package com.example.android.testing;
+
+import android.content.Context;
+import android.content.Intent;
+import android.support.test.InstrumentationRegistry;
+import android.support.test.filters.SdkSuppress;
+import android.support.test.runner.AndroidJUnit4;
+import android.support.test.uiautomator.By;
+import android.support.test.uiautomator.UiDevice;
+import android.support.test.uiautomator.UiObject2;
+import android.support.test.uiautomator.Until;
+import android.support.v7.widget.LinearLayoutCompat;
+import android.test.suitebuilder.annotation.LargeTest;
+
+import org.hamcrest.CoreMatchers;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+@RunWith(AndroidJUnit4.class)
+@SdkSuppress(minSdkVersion = 18)
+@LargeTest
+public class UIAutomatorTest {
+
+    private static final String APP_PACKAGE = &quot;com.example.android.testing&quot;;
+
+    private static final int LAUNCH_TIMEOUT = 5000;
+
+    private static final int UI_TIMEOUT = 5000;
+
+    private UiDevice device;
+
+    /**
+     * アプリケーション起動に必要なIntentを作成
+     *
+     * @param context     {@link InstrumentationRegistry#getContext()} テスト実行のアプリケーション
+     * @param packageName アプリケーションのパッケージ名
+     * @return アプリケーション起動用Intent
+     */
+    public static Intent createLaunchIntent(Context context, String packageName) {
+        final Intent intent = context.getPackageManager()
+                .getLaunchIntentForPackage(packageName);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        return intent;
+    }
+
+    @Before
+    public void setUp() {
+        device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
+
+        device.pressHome();
+
+        Context testContext = InstrumentationRegistry.getContext();
+        final Intent intent = createLaunchIntent(testContext, APP_PACKAGE);
+        testContext.startActivity(intent);
+
+        device.wait(Until.hasObject(By.pkg(APP_PACKAGE).depth(0)), LAUNCH_TIMEOUT);
+    }
+
+    @Test
+    public void 前提条件() {
+        Assert.assertThat(device, CoreMatchers.is(CoreMatchers.notNullValue()));
+    }
+
+    @Test
+    public void Hello_worldが表示されること() {
+        UiObject2 textView
+                = device.wait(Until.findObject(By.text(&quot;Hello world!&quot;)), UI_TIMEOUT);
+
+        Assert.assertThat(textView.getText(), CoreMatchers.is(&quot;Hello world!&quot;));
+    }
+
+    @Test
+    public void Action_overflowを押してSettingsが表示されること() {
+        UiObject2 actionOverflow
+                = device.wait(Until.findObject(By.clazz(LinearLayoutCompat.class)), UI_TIMEOUT);
+
+        actionOverflow.click();
+        device.waitForIdle();
+
+        UiObject2 menu
+                = device.wait(Until.findObject(By.text(&quot;Settings&quot;)), UI_TIMEOUT);
+
+        Assert.assertThat(menu.getText(), CoreMatchers.is(&quot;Settings&quot;));
+    }
+}
+</code></pre>
+
+<p>参考 URL<br />
+<a href="https://developer.android.com/intl/ja/tools/testing-support-library/index.html#UIAutomator">https://developer.android.com/intl/ja/tools/testing-support-library/index.html#UIAutomator</a><br />
+<a href="https://plus.google.com/+AndroidDevelopers/posts/WCWANrPkRxg">https://plus.google.com/+AndroidDevelopers/posts/WCWANrPkRxg</a></p>
+
+</div>
+
+  <hr>
+  <div class="footer">
+    <div class="row">
+      <div class="one columns">
+        <a href="https://github.com/leckyyyyyyy" target="_blank" title="GitHub"><i class="fa fa-github fa-3x"></i></a></span>
+      </div>
+      <div class="one columns">
+        <a href="https://twitter.com/leckyyyyyyy" target="_blank" title="Twitter"><i class="fa fa-twitter fa-3x"></i></a></span>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+
