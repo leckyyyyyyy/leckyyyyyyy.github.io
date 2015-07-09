@@ -6,8 +6,28 @@
     <description>Recent content on leckyyyyyyy.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 04 Jul 2015 22:30:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jul 2015 23:25:36 +0900</lastBuildDate>
     <atom:link href="http://leckyyyyyyy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>UiAutomation#executeShellCommand は 5.0 から利用可能なメソッドだった</title>
+      <link>http://leckyyyyyyy.github.io/post/2015/android-executeshellcommand/</link>
+      <pubDate>Thu, 09 Jul 2015 23:25:36 +0900</pubDate>
+      
+      <guid>http://leckyyyyyyy.github.io/post/2015/android-executeshellcommand/</guid>
+      <description>&lt;p&gt;UI Automator(コード上) で &lt;code&gt;adb shell&lt;/code&gt; を利用したいとき、ちょうど良いメソッド &lt;code&gt;UiAutomation#executeShellCommand&lt;/code&gt; を見つけたのですが、利用できるのは &lt;strong&gt;API level 21&lt;/strong&gt; からでした。&lt;br /&gt;
+ビルドしようにもメソッドが存在しない旨のメッセージが表示されてエラーになって困っていましたが、落ち着いて確認するとターゲットにしているバージョンが違っていました。&lt;br /&gt;
+入力補完のメソッド一覧に表示されたけど利用できなかったのですね。失敗した。&lt;/p&gt;
+
+&lt;p&gt;調べている最中に見つけた URL 忘れるともったいないので&lt;br /&gt;
+&lt;a href=&#34;https://developer.android.com/intl/ja/about/versions/android-5.0.html#TestingA11y&#34;&gt;Android 5.0 API の紹介(テストとユーザー補助)&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;https://developer.android.com/intl/ja/reference/android/app/UiAutomation.html#executeShellCommand(java.lang.String)&#34;&gt;リファレンス UiAutomation#executeShellCommand(java.lang.String)&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;https://developer.android.com/intl/ja/sdk/api_diff/21/changes.html&#34;&gt;Android API Differences Report&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;API の紹介や API の相違点のページにも今回欲しかった情報がありました。調べるときにネットでよく彷徨い続けることがあるので、気をつけないと。&lt;br /&gt;
+迷わないようにまずは公式から探します。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Android UI Automator の始め方</title>
@@ -554,18 +574,6 @@ yum list installed &amp;quot;*java&amp;quot;
 # パッケージ名に java が含まれるもの(部分一致)
 yum list installed &amp;quot;*java*&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Apache ログでのURLフラグメント(#)の扱い</title>
-      <link>http://leckyyyyyyy.github.io/post/2015/apache-log-fragment/</link>
-      <pubDate>Sun, 10 May 2015 23:12:33 +0900</pubDate>
-      
-      <guid>http://leckyyyyyyy.github.io/post/2015/apache-log-fragment/</guid>
-      <description>&lt;p&gt;URLフラグメント(#)以降の文字列はログには出力されない。&lt;br /&gt;
-URLフラグメント以降の文字列も意味のあるログ情報として扱いたい場合は&lt;br /&gt;
-自前でログ管理を作成するかなど対策が必要になる。&lt;/p&gt;
 </description>
     </item>
     
