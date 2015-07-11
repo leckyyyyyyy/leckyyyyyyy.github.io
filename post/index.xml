@@ -6,8 +6,28 @@
     <description>Recent content in Posts on leckyyyyyyy.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 09 Jul 2015 23:25:36 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jul 2015 23:54:32 +0900</lastBuildDate>
     <atom:link href="http://leckyyyyyyy.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Git push/pull を HTTPS でアクセスすると自己署名ではエラーになる</title>
+      <link>http://leckyyyyyyy.github.io/post/2015/git-pushpull-https-self-signed/</link>
+      <pubDate>Sat, 11 Jul 2015 23:54:32 +0900</pubDate>
+      
+      <guid>http://leckyyyyyyy.github.io/post/2015/git-pushpull-https-self-signed/</guid>
+      <description>&lt;p&gt;Git の push/pull を HTTPS のアクセスで行うと自己署名のサーバ証明書ではデフォルトはエラーになり、アクセスできない。&lt;br /&gt;
+アクセスできるようにするためには設定を変更する必要がある。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;特定のリポジトリのみ変更&lt;/strong&gt;&lt;br /&gt;
+&lt;code&gt;git config --local http.sslVerify false&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;デフォルトの設定を変更&lt;/strong&gt;&lt;br /&gt;
+&lt;code&gt;git config --global http.sslVerify false&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;意図的にセキュリティに関する設定を変更するので、実際に行うときは留意する必要があります。&lt;br /&gt;
+HTTPS に利用するサーバ証明書は自己署名ではないものを利用するのが望ましいですが、やむを得ないときもあるので、そのようなときにはこの対応が必要になるかと思います。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>UiAutomation#executeShellCommand は 5.0 から利用可能なメソッドだった</title>
@@ -552,28 +572,6 @@ zip ダウンロードして必要なファイルを抜き出す。GitHub で Ra
 
 &lt;p&gt;&lt;code&gt;release&lt;/code&gt; はデフォルトで定義されているので気付いたけど、&lt;br /&gt;
 &lt;code&gt;debug&lt;/code&gt; を定義してみると同じエラーが出たので、予約されているようです。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>yum でインストール済みのパッケージを確認する</title>
-      <link>http://leckyyyyyyy.github.io/post/2015/confirm-installed-package-yum/</link>
-      <pubDate>Thu, 28 May 2015 00:34:08 +0900</pubDate>
-      
-      <guid>http://leckyyyyyyy.github.io/post/2015/confirm-installed-package-yum/</guid>
-      <description>&lt;p&gt;&lt;code&gt;yum list installed&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;検索文字列を指定することで条件に一致するパッケージを表示する&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# パッケージ名の先頭が java と一致するもの(前方一致)
-yum list installed &amp;quot;java*&amp;quot;
-
-# パッケージ名の末尾が java と一致するもの(後方一致)
-yum list installed &amp;quot;*java&amp;quot;
-
-# パッケージ名に java が含まれるもの(部分一致)
-yum list installed &amp;quot;*java*&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
