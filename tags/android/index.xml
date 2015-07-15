@@ -6,8 +6,23 @@
     <description>Recent content in Android on leckyyyyyyy.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 09 Jul 2015 23:25:36 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jul 2015 23:20:09 +0900</lastBuildDate>
     <atom:link href="http://leckyyyyyyy.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Android で Throwable を表示するなら printStackTrace() より Log.*()</title>
+      <link>http://leckyyyyyyy.github.io/post/2015/android-good-throwable-log/</link>
+      <pubDate>Mon, 13 Jul 2015 23:20:09 +0900</pubDate>
+      
+      <guid>http://leckyyyyyyy.github.io/post/2015/android-good-throwable-log/</guid>
+      <description>&lt;p&gt;Android で try-catch ステートメントを利用したときに Throwable 型の変数がセットでついてくるので、とりあえず &lt;code&gt;printStackTrace()&lt;/code&gt; を呼び出していました。実際に呼び出されたときは Android Studio の LogCat では表示されず放置気味でした。(よろしくない習慣)&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Log.*()&lt;/code&gt; を利用するときも第2引数までしか利用しておらず、デバッグのときにあまり役立っていませんでしたが、&lt;code&gt;Log.*()&lt;/code&gt; の第3引数に catch ステートメントで捕捉したときに渡される Throwable 型の変数を渡せることに気付いたので、最近は第3引数に渡しています。&lt;/p&gt;
+
+&lt;p&gt;第3引数に渡すことで printStackTrace() を呼び出したときに出力される内容が LogCat で確認できます。&lt;br /&gt;
+ProGuard で難読化するときに削除することもできるので、扱いやすいかと思います。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>UiAutomation#executeShellCommand は 5.0 から利用可能なメソッドだった</title>

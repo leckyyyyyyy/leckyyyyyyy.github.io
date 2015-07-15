@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/css/custom.css">
 <link rel="stylesheet" href="/font-awesome/css/font-awesome.css">
 <link rel="alternate" href="/index.xml" type="application/rss+xml" title="leckyyyyyyy.info">
-<title>Android - leckyyyyyyy.info</title>
+<title>Android で Throwable を表示するなら printStackTrace() より Log.*() - leckyyyyyyy.info</title>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -27,40 +27,22 @@
 <h3 class="title"><a href="/">leckyyyyyyy.info</a></h3>
 
 
-    <div>
-    <strong>タグ <code>Android</code> の投稿を表示しています。</strong>
-    
-        <div>
-          <h5 class="entry-title"><a href="/post/2015/android-good-throwable-log/">Android で Throwable を表示するなら printStackTrace() より Log.*()</a></h5>
-          <p>2015-07-13</p>
-        </div>
-    
-        <div>
-          <h5 class="entry-title"><a href="/post/2015/android-executeshellcommand/">UiAutomation#executeShellCommand は 5.0 から利用可能なメソッドだった</a></h5>
-          <p>2015-07-09</p>
-        </div>
-    
-        <div>
-          <h5 class="entry-title"><a href="/post/2015/android-uiautomator-get-started/">Android UI Automator の始め方</a></h5>
-          <p>2015-07-04</p>
-        </div>
-    
-        <div>
-          <h5 class="entry-title"><a href="/post/2015/android-console-send-intent/">オリジナルの URL スキームを設定したアプリをコンソールから Intent を投げて起動する</a></h5>
-          <p>2015-06-28</p>
-        </div>
-    
-        <div>
-          <h5 class="entry-title"><a href="/post/2015/android-espresso-ondata-indexoutofboundsexception/">Android の Espresso.onData で java.lang.IndexOutOfBoundsException が発生したときは</a></h5>
-          <p>2015-06-24</p>
-        </div>
-    
-        <div>
-          <h5 class="entry-title"><a href="/post/2015/android-product-flavor-unavailable-name/">Android Product Flavor で利用できない名前</a></h5>
-          <p>2015-05-30</p>
-        </div>
-    
-    </div>
+<div class="container">
+  <h5>Android で Throwable を表示するなら printStackTrace() より Log.*()</h5>
+  <p>2015-07-13</p>
+  <div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="leckyyyyyyy" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
+
+  <p>Android で try-catch ステートメントを利用したときに Throwable 型の変数がセットでついてくるので、とりあえず <code>printStackTrace()</code> を呼び出していました。実際に呼び出されたときは Android Studio の LogCat では表示されず放置気味でした。(よろしくない習慣)</p>
+
+<p><code>Log.*()</code> を利用するときも第2引数までしか利用しておらず、デバッグのときにあまり役立っていませんでしたが、<code>Log.*()</code> の第3引数に catch ステートメントで捕捉したときに渡される Throwable 型の変数を渡せることに気付いたので、最近は第3引数に渡しています。</p>
+
+<p>第3引数に渡すことで printStackTrace() を呼び出したときに出力される内容が LogCat で確認できます。<br />
+ProGuard で難読化するときに削除することもできるので、扱いやすいかと思います。</p>
+
+</div>
 
   <hr>
   <div class="footer">

@@ -6,8 +6,23 @@
     <description>Recent content on leckyyyyyyy.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 11 Jul 2015 23:54:32 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jul 2015 23:20:09 +0900</lastBuildDate>
     <atom:link href="http://leckyyyyyyy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Android で Throwable を表示するなら printStackTrace() より Log.*()</title>
+      <link>http://leckyyyyyyy.github.io/post/2015/android-good-throwable-log/</link>
+      <pubDate>Mon, 13 Jul 2015 23:20:09 +0900</pubDate>
+      
+      <guid>http://leckyyyyyyy.github.io/post/2015/android-good-throwable-log/</guid>
+      <description>&lt;p&gt;Android で try-catch ステートメントを利用したときに Throwable 型の変数がセットでついてくるので、とりあえず &lt;code&gt;printStackTrace()&lt;/code&gt; を呼び出していました。実際に呼び出されたときは Android Studio の LogCat では表示されず放置気味でした。(よろしくない習慣)&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Log.*()&lt;/code&gt; を利用するときも第2引数までしか利用しておらず、デバッグのときにあまり役立っていませんでしたが、&lt;code&gt;Log.*()&lt;/code&gt; の第3引数に catch ステートメントで捕捉したときに渡される Throwable 型の変数を渡せることに気付いたので、最近は第3引数に渡しています。&lt;/p&gt;
+
+&lt;p&gt;第3引数に渡すことで printStackTrace() を呼び出したときに出力される内容が LogCat で確認できます。&lt;br /&gt;
+ProGuard で難読化するときに削除することもできるので、扱いやすいかと思います。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Git push/pull を HTTPS でアクセスすると自己署名ではエラーになる</title>
@@ -558,20 +573,6 @@ zip ダウンロードして必要なファイルを抜き出す。GitHub で Ra
 
 &lt;p&gt;このままでは IDE の起動が失敗するので、JDK8 にアップデートするか、&lt;br /&gt;
 プラグインの一覧から &lt;code&gt;CheckStyle-IDEA&lt;/code&gt; を選択してプラグインの実行を無効にする必要があります。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Android Product Flavor で利用できない名前</title>
-      <link>http://leckyyyyyyy.github.io/post/2015/android-product-flavor-unavailable-name/</link>
-      <pubDate>Sat, 30 May 2015 16:19:48 +0900</pubDate>
-      
-      <guid>http://leckyyyyyyy.github.io/post/2015/android-product-flavor-unavailable-name/</guid>
-      <description>&lt;p&gt;Product Flavor の名前に BuildType で定義している名前は利用できない。&lt;br /&gt;
-&lt;code&gt;ProductFlavor names cannot collide with BuildType names&lt;/code&gt; のエラーが出る。&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;release&lt;/code&gt; はデフォルトで定義されているので気付いたけど、&lt;br /&gt;
-&lt;code&gt;debug&lt;/code&gt; を定義してみると同じエラーが出たので、予約されているようです。&lt;/p&gt;
 </description>
     </item>
     
